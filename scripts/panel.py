@@ -26,7 +26,7 @@ tabWidth = 2.5
 while(True):
     usrFilletRadius = input("Fillet Radius, currently {}mm: ".format(filletRadius))
     usrHoleDia = input("Hole Diameter, currently {}mm: ".format(holeDia))
-    usrHoleInset = input("Hole Inset, currently {}. Enter inset, flush, or a custom number: ".format(holeInsetWord))
+    usrHoleInset = input("Hole Inset, currently {}. Enter inset, flush, standard, or a custom number: ".format(holeInsetWord))
     usrHolePitch = input("Hole Pitch, currently {}mm: ".format(pitch))
     usrTabWidth = input("Tab Width, default 2.5mm: ")
 
@@ -40,12 +40,14 @@ while(True):
         holeInsetWord = usrHoleInset
         if usrHoleInset == "inset" or usrHoleInset == "i":
             holeInset = float(holeDia) / 2.0 + 0.05
+        elif usrHoleInset == "standard" or usrHoleInset == "std" or usrHoleInset == "s":
+            holeInset = 0
         elif usrHoleInset == "flush" or usrHoleInset == 'f':
             holeInset = -float(holeDia) / 2.0
         else:
-            holeInset = usrHoleInset
+            holeInset = float(usrHoleInset)
     else:
-        holeInset = -float(holeDia) / 2.0
+        holeInset = -float(holeDia) / 2.0 + 0.05
 
     if usrHolePitch:
         pitch = float(usrHolePitch)
@@ -57,8 +59,11 @@ while(True):
     cmd = "java -jar scripts/kicadutil.jar pcb --file={} panel --fillet={} --hole={} --inset={} --pitch={} --width={}".format(path_to_file,filletRadius,holeDia,holeInset,pitch,tabWidth)
 
     # run the command
+    print(cmd)
     os.system(cmd)
     os.system("pcbnew hardware/{}/panel/output.{}".format(version, file_name))
 
+    print("Don't forget to add location for Manfu ID Code!")
     print("\nLets do it again!\n")
+
 
