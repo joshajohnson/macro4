@@ -594,7 +594,7 @@ Keys / Encoder
 Wire Wire Line
 	7050 1850 7400 1850
 Text Label 10050 1500 2    50   ~ 0
-KEY_1
+KEY_2
 Wire Wire Line
 	9700 1500 10050 1500
 Wire Wire Line
@@ -710,13 +710,13 @@ $EndComp
 Text Notes 3600 7050 0    100  ~ 0
 Mounting Holes
 Text Label 7300 4100 2    50   ~ 0
-KEY_2
+KEY_1
 Text Label 5100 4000 0    50   ~ 0
 KEY_4
 Text Label 7300 3600 2    50   ~ 0
 KEY_3
 Text Label 7300 4700 2    50   ~ 0
-KEY_1
+KEY_2
 Wire Wire Line
 	7300 4100 6850 4100
 Wire Wire Line
@@ -1128,7 +1128,7 @@ $EndComp
 Wire Wire Line
 	9700 2300 10000 2300
 Text Label 10000 2300 2    50   ~ 0
-KEY_2
+KEY_1
 Wire Wire Line
 	9100 2400 9000 2400
 Wire Wire Line
